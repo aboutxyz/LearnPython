@@ -145,7 +145,7 @@
     str1.center(width)                      # 获取固定长度，中间对齐，两边不够用空格补齐
     str1.zfill(width)                       # 获取固定长度，右对齐，左边不足用0补齐
     str1.find('t',start,end)                # 查找字符串，可以指定起始及结束位置搜索
-    str1.rfind('t')                         # 从右边开始查找字符串
+    str1.rfind('t')                         # 返回字符串最后一次出现的位置，如果没有匹配项则返回-1
     str1.count('t')                         # 查找字符串出现的次数
     #上面所有方法都可用index代替，不同的是使用index查找不到会抛异常，而find返回-1
     str1.replace('old','new')               # 替换函数，替换old为new，参数中可以指定maxReplaceTimes，即替换指定次数的old为new
@@ -241,6 +241,9 @@
     L.remove(value)                                   # 删除列表中的value值，只删除第一次出现的value的值
     L.reverse()                                       # 反转列表
     L.sort(cmp=None, key=None, reverse=False)         # 排序列表
+    sorted([36, 5, 12, 9, 21])[::-1]  
+    sorted([36, 5, 12, 9, 21], lambda x, y: y - x)    #反序数字
+    sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower)    #忽略大小写排序
     a = [1, 2, 3], b = a[10:]                         # 注意，这里不会引发IndexError异常，只会返回一个空的列表[]
     a = [], a += [1]                                  # 这里实在原有列表的基础上进行操作，即列表的id没有改变
     a = [], a = a + [1]                               # 这里最后的a要构建一个新的列表，即a的id发生了变化
